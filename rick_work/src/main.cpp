@@ -22,13 +22,12 @@ int main()
         {
             adiciona_celula(lista, celula_entrada);
         }else if(celula_entrada.operacao == 'r')
-        {   
-            //Remover recipiente
+        {   //Remover recipiente
             remove_celula(lista, celula_entrada.quantidade);
         }else if(celula_entrada.operacao == 'p')
         {
             //Realizar medição
-            verifica_lista(lista);
+            //verifica_lista(lista);
         }else if (cin.eof())
         {
             exit;

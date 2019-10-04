@@ -17,7 +17,7 @@ Lista_celula* cria_lista()
     if (lista != NULL)
         *lista = NULL;
 
-    cout << "Lista Criada \n";
+    //cout << "Lista Criada \n";
 
     return lista;
 };
@@ -42,7 +42,7 @@ void libera_lista(Lista_celula* lista)
         }
         free(lista);
     }
-    cout << "Lista liberada \n";
+    //cout << "Lista liberada \n";
 };
 
 
@@ -69,6 +69,11 @@ int adiciona_celula(Lista_celula* lista, valor_celula Celula_op)
 
         while (atual != NULL && atual->Celula.quantidade >= Celula_op.quantidade)
         {
+            if (atual->Celula.quantidade == Celula_op.quantidade)
+            {
+                //cout << "nao inserido \n" ; 
+                return 0;
+            }
             ant = atual;
             atual = atual->prox;
             //cout << "Entrou no while \n";
@@ -93,16 +98,16 @@ void verifica_lista(Lista_celula* lista) //verificar pq da dando segmentation fa
 {
     int count;
     if(lista == NULL) exit;
-    Elem_op *celula_op = *lista;
+    Elem_op* celula_op = *lista;
 
-    do
+    while (celula_op != NULL)
     {
         cout << celula_op->Celula.quantidade  <<" "<< celula_op->Celula.operacao << "\n";
-        count++;
         celula_op = celula_op->prox;
-    }while (lista != NULL);
+        count++;
+    }
     
-    cout << "Fim Lista \n" << count;
+    //cout << "Fim Lista " << count << "\n";
 };
 
 void remove_celula(Lista_celula* lista, int quantidade)
@@ -121,9 +126,14 @@ void remove_celula(Lista_celula* lista, int quantidade)
         *lista = celula_op->prox;    
     }else
     {
-        ant->prox  =     celula_op->prox;        
+        ant->prox = celula_op->prox;        
     }
     free(celula_op);
     
-    cout << "Removida\n";
+    //cout << "Removida\n";
+};
+
+int realiza_medicao(Lista_celula* lista, int a_quantidade)
+{
+       
 };
