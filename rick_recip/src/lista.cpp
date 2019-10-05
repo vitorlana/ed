@@ -4,6 +4,7 @@ using namespace std;
 
 //Declaração da classe utilizando o recurso de templates
 template <class T>
+
 class Lista
 {
     private:
@@ -153,7 +154,7 @@ class Lista
 };
 
 // EXEMPLOS DE UTILIZAÇÃO
-int main()
+/*int main()
 {
     //Lista de inteiros
     Lista<int>* intLista = new Lista<int>();
@@ -192,4 +193,4 @@ int main()
     delete[] charLista;
 
     return 0;
-}
+}*/

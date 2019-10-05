@@ -1,24 +1,33 @@
 #include <iostream>
 #include "recip.h"
+#include "lista.h"
 
 using namespace std;
 
 int main()
 {
-    Entrada user_ent;
-    while ((cin >> user_ent.quantidade >> user_ent.operacao))
+
+     
+    Lista_celula entrada;
+    
+    Lista<int>* recipientes = new Lista<int>();
+    
+
+    while ((cin >> entrada.quantidade >> entrada.op))
     {
-        if (user_ent.operacao = "i" or "I")
+        if (entrada.op == 'i')
         {
             //Inserir recipiente
+            recipientes->InsereOrdem(entrada.quantidade);
             cout << "i \n";
-        }else if(user_ent.operacao = "r" or "R")
+        }else if(entrada.op == 'r')
         {   
             //Remover recipiente
             cout << "r \n";
-        }else if(user_ent.operacao = "p" or "P")
+        }else if(entrada.op == 'p')
         {
             //Realizar medição
+            recipientes->mostra();
             cout << "p \n";
         }else if (cin.eof())
         {
