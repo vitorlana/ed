@@ -74,20 +74,21 @@ class Lista
             aux = lista;
             int i=0;
 
-            while (aux->prox != NULL)
+            while (aux->x != x)
             {
                 //cout << i++;
-                if (x == aux->x)
-                {
-
-                    ant->prox = aux->prox;
-                    free(aux);
-                    //cout <<ant->x << " "<< aux->x << " " << aux->prox->x <<" ";
-                    return;
-                }
                 ant = aux;
                 aux = aux->prox;
+                
             }
+            if (x == aux->x)
+                    {
+
+                        ant->prox = aux->prox;
+                        free(aux);
+                        //cout <<ant->x << " "<< aux->x << " " << aux->prox->x <<" ";
+                        return;
+                    }
             
         }
 
