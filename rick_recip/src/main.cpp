@@ -7,7 +7,6 @@ using namespace std;
 int main()
 {
 
-     
     Lista_celula entrada;
     
     Lista<int>* recipientes = new Lista<int>();
@@ -19,7 +18,7 @@ int main()
         {
             //Inserir recipiente
             recipientes->InsereOrdem(entrada.quantidade);
-            cout << "i \n";
+            //cout << "i \n";
         }else if(entrada.op == 'r')
         {   
             //Remover recipiente
@@ -27,8 +26,9 @@ int main()
         }else if(entrada.op == 'p')
         {
             //Realizar medição
+            cout << resultado(entrada.quantidade,recipientes,1);
             recipientes->mostra();
-            cout << "p \n";
+            //cout << "p \n";
         }else if (cin.eof())
         {
             exit;

@@ -31,6 +31,7 @@ class Lista
             lista->prox = NULL;
         }
 
+    
         //Método para inserção no início da lista
         void InsereInicio(T x)
         {
@@ -39,6 +40,32 @@ class Lista
             novo->prox = lista->prox;
             lista->prox = novo;
         }
+
+        /*
+        void remove_celula(T x)
+        {
+     
+            Elem_op *ant, *celula_op = *lista;
+            while (celula_op != NULL && celula_op->Celula.quantidade != quantidade)
+            {
+                ant = celula_op;
+                celula_op = celula_op->prox;
+            }
+            if(celula_op == NULL) exit;
+
+            if(celula_op == *lista)
+            {
+                *lista = celula_op->prox;    
+            }else
+            {
+                ant->prox = celula_op->prox;        
+            }
+            free(celula_op);
+            
+            //cout << "Removida\n";
+        };
+        */
+
 
         //Método para inserção no final da lista
         void InsereFim(T x)
