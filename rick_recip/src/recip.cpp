@@ -26,26 +26,28 @@ int resultado(int Quant_esp, Lista<int>* original, Lista<int>* nova, int oper)
         {
 
             //cout << original->tamanho_lista() << " ";
-
+            //cout <<"\n j " <<j << "\n";
+        
                 for (int i = 0; i<=nova->tamanho_lista();i++)
                 {   
                     nova_lista->InsereFim(original->get(j) + nova->get(i));
+                    cout <<original->get(j) << " + " <<nova->get(i) << " = " <<original->get(j) + nova->get(i) << " \n";
                     
                     if (original->get(j) - nova->get(i) > 0)
                     {
                         nova_lista->InsereFim(original->get(j) - nova->get(i));
-                        
+                    cout <<original->get(j) << " - " <<nova->get(i) << " = " <<original->get(j) + nova->get(i) << " \n";
                     }
 
                     //cout <<"i " <<i << " ";
                 }
-           //cout <<"j " <<j << "\n";
-        
+           
 
             //cout << nova_lista->tamanho_lista() << "\n";
         }
 
-        cout <<"qt: "<< Quant_esp << " lista: ";
+        cout <<"\n qt: "<< Quant_esp << " lista: ";
+        original->mostra();
         nova_lista->mostra();
         
         if (nova_lista->existe(Quant_esp))
