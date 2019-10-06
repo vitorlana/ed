@@ -6,10 +6,10 @@
         "name": "(gdb) Launch",
         "type": "cppdbg",
         "request": "launch",
-        "program": "/mnt/c/Users/vitor/Documents/GitHub/ed/rick_work/src/main.out",
+        "program": "/mnt/c/Users/vitor/Documents/GitHub/ed/rick_recip/src/main.out",
         "args": [""],
         "stopAtEntry": true,
-        "cwd": "/mnt/c/Users/vitor/Documents/GitHub/ed/rick_work/src/",
+        "cwd": "/mnt/c/Users/vitor/Documents/GitHub/ed/rick_recip/src/",
         "environment": [],
         "externalConsole": true,
         "windows": {

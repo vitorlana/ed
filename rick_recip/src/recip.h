@@ -9,6 +9,7 @@ struct Lista_celula
     char op;
 };
 
-int resultado(int Quant_esp, Lista<int>* atual, int oper);
+int resultado(int Quant_esp, Lista<int>* original);
+int resultado(int Quant_esp, Lista<int>* original, Lista<int>* nova, int oper);
 
 #endif 

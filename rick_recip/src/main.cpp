@@ -22,17 +22,26 @@ int main()
         }else if(entrada.op == 'r')
         {   
             //Remover recipiente
-            cout << "r \n";
+            recipientes->Remove(entrada.quantidade);
+            //cout << "r \n";
         }else if(entrada.op == 'p')
         {
             //Realizar medição
-            cout << resultado(entrada.quantidade,recipientes,1);
-            recipientes->mostra();
+            cout << resultado(entrada.quantidade,recipientes) << "\n";
+            //recipientes->mostra();
+            //cout << recipientes->tamanho_lista();
             //cout << "p \n";
         }else if (cin.eof())
         {
-            exit;
-        }else exit;
+            return 0;
+        }else if(entrada.op == 'm')
+        {
+            recipientes->mostra();
+        }else
+        {
+            return 0;
+        }
+        
     }
     return 0;
 }

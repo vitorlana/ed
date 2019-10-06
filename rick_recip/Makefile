@@ -34,22 +34,38 @@ TMPOUT=tp1.testresult
 # de compilacao
 # CMD sao os comandos necessarios para executar a regra (por exemplo, chamar o
 # gcc)
+CC=g++
+CFLAGS=-Wall -Wextra 
+EXEC=./tp1
+TMPOUT=tp.testresult
 
-$(EXEC): src/main.cc foo.o
-	$(CC) $(CFLAGS) src/main.cc foo.o -o $(EXEC)
-
-foo.o: src/foo.cc # esse eh um exemplo, nao utilize esse tipo de nome (foo.cc, foo.h, foo.o) para seus arquivos
-	$(CC) $(CFLAGS) -c src/foo.cc -o foo.o
+#clean: # remove todos os arquivos temporarios que forem gerados pela compilacao
+#	rm -rf main.o tp1 recip.o
 
 test: $(EXEC)
 	@bash run_tests.sh $(EXEC) $(TMPOUT)
 
-clean: # remove todos os arquivos temporarios que forem gerados pela compilacao
-	rm -rf foo.o
+$(EXEC): main.o recip.o 
+	$(CC) main.o recip.o  -o $(EXEC)
 
+main.o: src/main.cpp src/recip.h src/lista.h
+	$(CC) -c src/main.cpp
+
+recip.o: src/recip.cpp src/recip.h 
+	$(CC) -c src/recip.cpp
+
+
+
+
+	 
 # === OUTROS =====
 # ================
 # 
 # Para mais informacoes sobre o Makefile, procure os monitores ou consulte
 # outras referencias disponiveis na internet como:
 # https://opensource.com/article/18/8/what-how-makefile
+
+
+
+
+

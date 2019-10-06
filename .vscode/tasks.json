@@ -18,9 +18,9 @@
             "args": [
                 "-g",
                 "-o",
-                "/mnt/c//Users/vitor/Documents/GitHub/ed/rick_work/src/main.out",
-                "/mnt/c//Users/vitor/Documents/GitHub/ed/rick_work/src/main.cpp",
-                "/mnt/c//Users/vitor/Documents/GitHub/ed/rick_work/src/dados.cpp"
+                "/mnt/c//Users/vitor/Documents/GitHub/ed/rick_recip/src/main.out",
+                "/mnt/c//Users/vitor/Documents/GitHub/ed/rick_recip/src/main.cpp",
+                "/mnt/c//Users/vitor/Documents/GitHub/ed/rick_recip/src/recip.cpp"
             ],
             "group": {
                 "kind": "build",

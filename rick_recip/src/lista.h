@@ -41,32 +41,7 @@ class Lista
             lista->prox = novo;
         }
 
-        /*
-        void remove_celula(T x)
-        {
-     
-            Elem_op *ant, *celula_op = *lista;
-            while (celula_op != NULL && celula_op->Celula.quantidade != quantidade)
-            {
-                ant = celula_op;
-                celula_op = celula_op->prox;
-            }
-            if(celula_op == NULL) exit;
-
-            if(celula_op == *lista)
-            {
-                *lista = celula_op->prox;    
-            }else
-            {
-                ant->prox = celula_op->prox;        
-            }
-            free(celula_op);
-            
-            //cout << "Removida\n";
-        };
-        */
-
-
+        
         //Método para inserção no final da lista
         void InsereFim(T x)
         {
@@ -82,6 +57,31 @@ class Lista
             }
 
             aux->prox = novo;
+        }
+        
+        void Remove(T x)
+        {
+            no *ant = new no;
+            no *aux;
+
+            aux = lista;
+            int i=0;
+
+            while (aux->prox != NULL)
+            {
+                //cout << i++;
+                if (x == aux->x)
+                {
+
+                    ant->prox = aux->prox;
+                    free(aux);
+                    //cout <<ant->x << " "<< aux->x << " " << aux->prox->x <<" ";
+                    return;
+                }
+                ant = aux;
+                aux = aux->prox;
+            }
+            
         }
 
         //Método para inserção dos elementos em ordem crescente
@@ -178,6 +178,28 @@ class Lista
                 cout << aux->prox->x << " ";
                 aux = aux->prox;
             }
+            cout << "\n";
+        }
+
+        int tamanho_lista()
+        {
+            int count =0;
+
+            if(lista->prox == NULL)
+            {
+                return 0;
+            }
+
+            no* aux = lista;
+
+            while(aux->prox)
+            {
+                count++;
+                aux = aux->prox;
+            }
+
+            return count;
+
         }
 };
 
