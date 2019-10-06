@@ -22,10 +22,10 @@ int resultado(int Quant_esp, Lista<int>* original, Lista<int>* nova, int oper)
         oper++; 
         Lista<int>* nova_lista = new Lista<int>();
         
-        for(int j = 0; j<original->tamanho_lista();j++)
+        for(int j = 0; j<=original->tamanho_lista();j++)
         {
 
-            //cout << original->tamanho_lista() << " ";
+            //cout << nova_lista->tamanho_lista() << " ";
 
                 for (int i = 0; i<=nova->tamanho_lista();i++)
                 {   
@@ -36,17 +36,12 @@ int resultado(int Quant_esp, Lista<int>* original, Lista<int>* nova, int oper)
                         nova_lista->InsereFim(original->get(j) - nova->get(i));
                         
                     }
-
-                    //cout <<"i " <<i << " ";
                 }
-           //cout <<"j " <<j << "\n";
-        
 
             //cout << nova_lista->tamanho_lista() << "\n";
         }
-
-        cout <<"qt: "<< Quant_esp << " lista: ";
-        nova_lista->mostra();
+        
+        //nova_lista->mostra();
         
         if (nova_lista->existe(Quant_esp))
         {

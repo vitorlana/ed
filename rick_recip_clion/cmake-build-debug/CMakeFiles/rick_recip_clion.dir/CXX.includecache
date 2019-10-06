@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/vitor/Documents/GitHub/ed/rick_recip_clion/src/lista.h
+iostream
+-
+
+C:/Users/vitor/Documents/GitHub/ed/rick_recip_clion/src/main.cpp
+iostream
+-
+recip.h
+C:/Users/vitor/Documents/GitHub/ed/rick_recip_clion/src/recip.h
+lista.h
+C:/Users/vitor/Documents/GitHub/ed/rick_recip_clion/src/lista.h
+
+C:/Users/vitor/Documents/GitHub/ed/rick_recip_clion/src/recip.cpp
+iostream
+-
+recip.h
+C:/Users/vitor/Documents/GitHub/ed/rick_recip_clion/src/recip.h
+
+C:/Users/vitor/Documents/GitHub/ed/rick_recip_clion/src/recip.h
+lista.h
+C:/Users/vitor/Documents/GitHub/ed/rick_recip_clion/src/lista.h
+
