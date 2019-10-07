@@ -40,7 +40,7 @@ EXEC=./tp1
 TMPOUT=tp.testresult
 
 #clean: # remove todos os arquivos temporarios que forem gerados pela compilacao
-#	rm -rf main.o tp1 recip.o
+#	rm -rf main.o recip.o
 
 test: $(EXEC)
 	@bash run_tests.sh $(EXEC) $(TMPOUT)
@@ -48,11 +48,11 @@ test: $(EXEC)
 $(EXEC): main.o recip.o 
 	$(CC) main.o recip.o  -o $(EXEC)
 
-main.o: src/main.cpp src/recip.h src/lista.h
-	$(CC) -c src/main.cpp
+main.o: main.cpp recip.h lista.h
+	$(CC) -c main.cpp
 
-recip.o: src/recip.cpp src/recip.h 
-	$(CC) -c src/recip.cpp
+recip.o: recip.cpp recip.h 
+	$(CC) -c recip.cpp
 
 
 
