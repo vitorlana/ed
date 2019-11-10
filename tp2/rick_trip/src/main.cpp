@@ -17,9 +17,9 @@ int main()
 
     mergeSort(lista_planetas,0,e_entrada.planetas-1);
 
-    organiza_agenda(lista_planetas,meses,e_entrada);
+    //organiza_agenda(lista_planetas,meses,e_entrada);
 
-    //listar_planetas(lista_planetas, e_entrada.planetas);   
+    listar_planetas(lista_planetas, e_entrada.planetas);   
 
 
     return 0;

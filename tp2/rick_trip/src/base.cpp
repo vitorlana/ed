@@ -84,7 +84,7 @@ void mergeSort(planeta *vetor, int posicaoInicio, int posicaoFim) {
         vetor[i].tn_planeta = vetorTemp[i - posicaoInicio].tn_planeta;
         vetor[i].n_planeta = vetorTemp[i - posicaoInicio].n_planeta;
     }
-    free(vetorTemp);
+    //free(vetorTemp);
 }
 
 void organiza_agenda(planeta* o_planetas, mes* o_mes, entrada o_entrada)
@@ -94,25 +94,23 @@ void organiza_agenda(planeta* o_planetas, mes* o_mes, entrada o_entrada)
     o_mes  =  new mes[o_entrada.planetas];
 
 
-    for (int i = 1; i <= o_entrada.planetas; i++) //melhorar isso
+    for (int i = 0; i < o_entrada.planetas; i++) //melhorar isso
     {
-        //cout << i << " ";
-        for (int j = 0; j <= tam_vec; j++)
+        for (int j = 0; j < tam_vec; j++)
         {
-            //cout << " aif: "<< o_aux << " " << o_planetas[j].tn_planeta << " " << o_entrada.temp_min << "\n";   
-            //cout << o_entrada.temp_min << " " << tam_vec <<"\n";
-            //cout << j << " \n";
             if(o_aux + o_planetas[j].tn_planeta <= o_entrada.temp_min)
             {
-                //cout << " a: "<< o_aux << " " << o_planetas[j].tn_planeta << " " << o_entrada.temp_min << "\n";
                 o_aux =  o_aux + o_planetas[j].tn_planeta;
-                //cout << " d: "<< o_aux << " " << o_planetas[j].tn_planeta << " " << o_entrada.temp_min << "\n";
                 cout << i << " " <<  o_planetas[j].tn_planeta << " " << o_planetas[j].n_planeta << "\n";
                 tam_vec = remover_planeta(o_planetas,j,tam_vec);
-                //listar_planetas(o_planetas,tam_vec);
+            }
+            else
+            {
+                break;
+                
             }
         }
-        o_aux = 0;
+        o_aux =0;
         //cout << o_aux <<  "\n";
         
     }
@@ -125,6 +123,7 @@ int remover_planeta(planeta* r_planeta, int pos, int tam)
         r_planeta[i].n_planeta = r_planeta[i+1].n_planeta;
         r_planeta[i].tn_planeta = r_planeta[i+1].tn_planeta;
     }
+
     return tam-1;
 }
 
