@@ -18,8 +18,7 @@ using namespace std;
     {
         int tn_planeta;
         string n_planeta;
-        //planeta *prox;
-
+        int num_mes;
     };
 
     struct mes 
@@ -31,11 +30,17 @@ using namespace std;
     planeta* insere_planetas(entrada ent);
     void listar_planetas(planeta* l_planeta, int plan);
     void mergeSort(planeta *vetor, int posicaoInicio, int posicaoFim);
-    void organiza_agenda(planeta* o_planeta, mes* o_mes, entrada o_entrada);
+    planeta* organiza_agenda(planeta* o_planeta, int* o_mes, entrada o_entrada);
     void remover_planeta(planeta* r_planeta, int pos, int tam);
     void realiza_copia(planeta* o_planeta, planeta* c_planeta, int tam);
 
+    void countSort(planeta* a, int size, int k);
+    void radixSort(planeta* b, int r, int max);
 
+    void listar_ordenado(planeta* lo_planetas, int meses, int planetas);
+
+
+    
    
 
 

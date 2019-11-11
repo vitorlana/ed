@@ -7,7 +7,7 @@
         "type": "cppdbg",
         "request": "launch",
         "program": "/mnt/c/Users/vitor/Documents/GitHub/ed/tp2/rick_trip/src/main.out",
-        "args": ["<","/mnt/c/Users/vitor/Documents/GitHub/ed/tp2/rick_trip/tests/07.in"],
+        "args": ["<","/mnt/c/Users/vitor/Documents/GitHub/ed/tp2/rick_trip/tests/02.in"],
         "stopAtEntry": true,
         "cwd": "/mnt/c/Users/vitor/Documents/GitHub/ed/tp2/rick_trip/src",
         "environment": [],

@@ -34,18 +34,17 @@ TMPOUT=tp2.testresult
 # de compilacao
 # CMD sao os comandos necessarios para executar a regra (por exemplo, chamar o
 # gcc)
-
-$(EXEC): main.cc foo.o
-	$(CC) $(CFLAGS) main.cc foo.o -o $(EXEC)
-
-foo.o: foo.cc # esse eh um exemplo, nao utilize esse tipo de nome (foo.cc, foo.h, foo.o) para seus arquivos
-	$(CC) $(CFLAGS) -c foo.cc -o foo.o
-
 test: $(EXEC)
 	@bash ../run_tests.sh $(EXEC) $(TMPOUT)
 
+$(EXEC): main.cpp base.o
+	$(CC) $(CFLAGS) main.cpp base.o -o $(EXEC)
+
+foo.o: base.cpp # esse eh um exemplo, nao utilize esse tipo de nome (foo.cc, foo.h, foo.o) para seus arquivos
+	$(CC) $(CFLAGS) -c base.cpp -o base.o
+
 clean: # remove todos os arquivos temporarios que forem gerados pela compilacao
-	rm -rf foo.o
+	rm -rf base.o
 
 # === OUTROS =====
 # ================
