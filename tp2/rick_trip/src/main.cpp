@@ -10,16 +10,21 @@ int main()
     mes* meses =  new mes;
 
     cin >> e_entrada.temp_min >> e_entrada.planetas >> e_entrada.numero_caract;
-    
+
     lista_planetas = insere_planetas(e_entrada);
     //cout << "saiu";
-    //cout << lista_planetas[0].n_planeta;
+    //cout << lista_planetas[e_entrada.planetas].n_planeta;
 
-    mergeSort(lista_planetas,0,e_entrada.planetas-1);
+    //listar_planetas(lista_planetas, e_entrada.planetas);   
 
-    //organiza_agenda(lista_planetas,meses,e_entrada);
+    mergeSort(lista_planetas,1,e_entrada.planetas);
+    
+    //listar_planetas(lista_planetas, e_entrada.planetas);   
 
-    listar_planetas(lista_planetas, e_entrada.planetas);   
+
+    organiza_agenda(lista_planetas,meses,e_entrada);
+
+    //listar_planetas(lista_planetas, e_entrada.planetas);   
 
 
     return 0;

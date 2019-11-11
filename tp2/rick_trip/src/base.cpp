@@ -6,9 +6,9 @@
 planeta* insere_planetas(entrada ent)
 {   
     planeta *vt_planeta;
-    vt_planeta  = new planeta[ent.planetas];
+    vt_planeta  = new planeta[ent.planetas+1];
 
-    for(int i = 0; i<ent.planetas; i++)
+    for(int i = 1; i<=ent.planetas; i++)
     {
         
         cin >> vt_planeta[i].tn_planeta;
@@ -27,7 +27,7 @@ planeta* insere_planetas(entrada ent)
 
 void listar_planetas(planeta* l_planeta, int plan)
 {
-    for (int i =0; i< plan;i++)
+    for (int i =1; i<= plan;i++)
     {
         //cout << i << " ";
         cout << l_planeta[i].tn_planeta << " ";
@@ -37,7 +37,7 @@ void listar_planetas(planeta* l_planeta, int plan)
 
 void mergeSort(planeta *vetor, int posicaoInicio, int posicaoFim) {
     int i, j, k, metadeTamanho;
-    planeta *vetorTemp;
+    planeta* vetorTemp;
     if(posicaoInicio == posicaoFim) return;
     metadeTamanho = (posicaoInicio + posicaoFim ) / 2;
 
@@ -47,10 +47,11 @@ void mergeSort(planeta *vetor, int posicaoInicio, int posicaoFim) {
     i = posicaoInicio;
     j = metadeTamanho + 1;
     k = 0;
-    vetorTemp = (planeta *) malloc(sizeof(planeta) * (posicaoFim - posicaoInicio + 1));
+    vetorTemp = new planeta [posicaoFim - posicaoInicio + 1];
 
     while(i < metadeTamanho + 1 || j  < posicaoFim + 1) {
-        if (i == metadeTamanho + 1 ) { 
+        if (i == metadeTamanho + 1 ) {
+
             vetorTemp[k].tn_planeta = vetor[j].tn_planeta;
             vetorTemp[k].n_planeta = vetor[j].n_planeta;
             j++;
@@ -59,6 +60,7 @@ void mergeSort(planeta *vetor, int posicaoInicio, int posicaoFim) {
         else {
             if (j == posicaoFim + 1) {
                 vetorTemp[k].tn_planeta = vetor[i].tn_planeta;
+                //vetorTemp[k].n_planeta.clear();
                 vetorTemp[k].n_planeta = vetor[i].n_planeta;
                 i++;
                 k++;
@@ -84,39 +86,60 @@ void mergeSort(planeta *vetor, int posicaoInicio, int posicaoFim) {
         vetor[i].tn_planeta = vetorTemp[i - posicaoInicio].tn_planeta;
         vetor[i].n_planeta = vetorTemp[i - posicaoInicio].n_planeta;
     }
-    //free(vetorTemp);
+    delete[] vetorTemp;    
 }
+
 
 void organiza_agenda(planeta* o_planetas, mes* o_mes, entrada o_entrada)
 {
     int tam_vec = o_entrada.planetas;
-    int o_aux = 0;
-    o_mes  =  new mes[o_entrada.planetas];
+    int o_aux =0, aux = 0, j=1, i=1;
+    planeta* vetorTemp = new planeta[o_entrada.planetas+1];
 
-
-    for (int i = 0; i < o_entrada.planetas; i++) //melhorar isso
+    for (int p = 1; p <= o_entrada.planetas; p++)
     {
-        for (int j = 0; j < tam_vec; j++)
+        vetorTemp[p].tn_planeta = o_planetas[p].tn_planeta;
+        vetorTemp[p].n_planeta = o_planetas[p].n_planeta;
+    }
+    
+    //listar_planetas(vetorTemp,o_entrada.planetas);
+
+    while (tam_vec != 0)
+    {
+        while (tam_vec != 0 || j<=tam_vec)
         {
             if(o_aux + o_planetas[j].tn_planeta <= o_entrada.temp_min)
             {
-                o_aux =  o_aux + o_planetas[j].tn_planeta;
-                cout << i << " " <<  o_planetas[j].tn_planeta << " " << o_planetas[j].n_planeta << "\n";
-                tam_vec = remover_planeta(o_planetas,j,tam_vec);
+
+                o_aux = o_aux+ o_planetas[j].tn_planeta;
+                cout << i << " " <<  o_planetas[j].n_planeta << " " << o_planetas[j].tn_planeta << "\n";
+                //cout << " remove \n";
+                remover_planeta(o_planetas,j,tam_vec);
+                tam_vec--;
+                j--;
+                aux++;
+                //listar_planetas(o_planetas,tam_vec);
             }
-            else
-            {
-                break;
-                
-            }
+            j++;
+            if(j>tam_vec) break;
         }
-        o_aux =0;
-        //cout << o_aux <<  "\n";
+        i++;
+        //cout << "for externo mes : "<< i << " tempo gasto: " << o_aux <<" \n";
+        o_aux = 0;
+        j =1;
         
+        if(tam_vec == 0) break;
+        //cout << i << " ";
     }
+
+    o_planetas = vetorTemp;
+    delete[] vetorTemp;
+
+    //listar_planetas(o_planetas,o_entrada.planetas);
+
 }
 
-int remover_planeta(planeta* r_planeta, int pos, int tam)
+void remover_planeta(planeta* r_planeta, int pos, int tam)
 {
     for(int i =pos; i<tam;i++)
     {
@@ -124,7 +147,6 @@ int remover_planeta(planeta* r_planeta, int pos, int tam)
         r_planeta[i].tn_planeta = r_planeta[i+1].tn_planeta;
     }
 
-    return tam-1;
 }
 
 

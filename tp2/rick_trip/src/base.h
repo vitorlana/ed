@@ -32,7 +32,8 @@ using namespace std;
     void listar_planetas(planeta* l_planeta, int plan);
     void mergeSort(planeta *vetor, int posicaoInicio, int posicaoFim);
     void organiza_agenda(planeta* o_planeta, mes* o_mes, entrada o_entrada);
-    int remover_planeta(planeta* r_planeta, int pos, int tam);
+    void remover_planeta(planeta* r_planeta, int pos, int tam);
+    void realiza_copia(planeta* o_planeta, planeta* c_planeta, int tam);
 
 
    
