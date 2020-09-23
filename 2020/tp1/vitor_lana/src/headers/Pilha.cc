@@ -1,11 +1,4 @@
-#include <stdlib.h>
-#include <iostream>
-
-#include "Nave.h"
 #include "Pilha.h"
-#include "Fila.h"
-
-Nave *topo;
 
 void Pilha::addPilha(int ident){
 	struct Nave *novaNave = new Nave;

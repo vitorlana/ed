@@ -75,13 +75,13 @@ int main() {
       break;
       }
     case -3:{
-      manutencao->impFilaInv();
+      manutencao->impFila();
       break;
       }
     default:{
-      aux = combate->busRemFila(valorOpId);
-      manutencao->addFila(aux);
-      std::cout << "nave " << aux << " avariada" << std::endl;
+      combate->busRemFila(valorOpId);
+      manutencao->addFila(valorOpId);
+      std::cout << "nave " << valorOpId << " avariada" << std::endl;
       break;
     }
     }

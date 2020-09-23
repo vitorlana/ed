@@ -1,13 +1,24 @@
-#ifndef	__PILHA_CLASS__
+#ifndef __PILHA_CLASS__
 #define __PILHA_CLASS__
 
-class Pilha{
+#include <stdlib.h>
+#include <iostream>
+
+#include "Nave.h"
+#include "Fila.h"
+
+class Pilha
+{
 	public:
-		void addPilha(int ident);
-		int remPilha();
-		void impPilha();
-		void impPilhaInv();
-		~Pilha();
+
+	Nave *topo;
+	Pilha() { topo = NULL; }
+
+	void addPilha(int ident);
+	int remPilha();
+	void impPilha();
+	void impPilhaInv();
+	~Pilha();
 };
 
 #endif

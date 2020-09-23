@@ -4,8 +4,8 @@
 struct Nave
 {
     int _ident;
-    Nave *prox;
-    Nave *ante;
+    Nave *prox = NULL;
+    Nave *ante = NULL;
 };
 
 

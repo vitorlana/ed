@@ -1,11 +1,4 @@
-#include <stdlib.h>
-#include <iostream>
-
-#include "Nave.h"
 #include "Fila.h"
-#include "Pilha.h"
-
-Nave *inicio=NULL, *final = NULL;
 
 void Fila::addFila(int ident){
 	Nave *temp = new Nave;
@@ -14,7 +7,7 @@ void Fila::addFila(int ident){
 	temp->_ident = ident;
 	temp->prox = NULL;
 
-	if (inicio ==NULL)
+	if (inicio == NULL)
 	{
 		inicio = final = temp;
 	}else
@@ -38,12 +31,13 @@ void Fila::impFila(){
 
 void Fila::impFilaInv(){
 
+	
+	Nave *temp = inicio;
 	Pilha impInversa;
 
 	if (inicio == NULL)
 		return;
 
-	Nave *temp = inicio;
 	while (temp)
 	{
 		impInversa.addPilha(temp->_ident);
@@ -55,6 +49,7 @@ void Fila::impFilaInv(){
 
 int Fila::remFila(){
 	int temp = inicio->_ident;
+	
 	if (inicio == NULL)
 		return EOF;
 	if (inicio == final){	
@@ -66,31 +61,33 @@ int Fila::remFila(){
 	}
 }
 
-int Fila::busRemFila(int ident){
-	int tempValue;
-	if (inicio == NULL)
-		return EOF;
-
+void Fila::busRemFila(int ident){
 	Nave *temp = inicio;
+
+	if (inicio == NULL)
+		std::cout << " 1 ";
+	return;
 
 	if (temp->_ident == ident)
 	{
-		tempValue = temp->_ident;
+		std::cout << " 2 ";
 		temp = temp->prox;
 		inicio = temp;
-		return tempValue;
+		return;
 	}
 
 	while (temp)
 	{
 		if (temp->_ident == ident)
 		{
-			tempValue = temp->_ident;
+		std::cout << " inside ";
+
 			temp->_ident = temp->prox->_ident;
 			temp->prox = temp->prox->prox;
-			return tempValue;
 			break;
 		}
+		std::cout << " 3 ";
+
 		temp = temp->prox;
 	}
 }
